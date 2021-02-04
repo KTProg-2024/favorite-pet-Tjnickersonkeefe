@@ -1,10 +1,48 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+	    <title>Pet Project</title>
+	
     </head>
     
     <body>
-	
+		<h1>Favorite pets</h1>
+		<h3>Click a title to show more information.</h3>
+		<hr>
+		<h2 onclick="toggleStatus(0)">Cats</h2>
+		<div id="slot0"></div>
+		<hr>
+		<h2 onclick="toggleStatus(1)">Dogs</h2>
+		<div id="slot1"></div>
+		<hr>
+		<h2 onclick="toggleStatus(2)">Chickens</h2>
+		<div id="slot2"></div>
+		<hr>
+		<h2 onclick="toggleStatus(3)">Goats</h2>
+		<div id="slot3"></div>
+		<hr>
+		<h2 onclick="toggleStatus(4)">Llamas</h2>
+		<div id="slot4"></div>
+		<hr>
+		<script>
+
+			let activationStatus = [0,0,0,0,0]
+			const LatinName = ["Felis catus","Canis lupus familiaris","Gallus gallus domesticus","Capra aegagrus hircus","Capra aegagrus hircus"]
+			const description = ["The common housecat. First aligned with humans to protect grain houses from mice, they at first weren't domesticated, mainly just protecting the grain the humans stored from mice without working with the humans.",
+			"First domesticated by humans by taking their scraps of bone after they were finished eating, they later began to assist with hunting, and later became house pets. although they are still used for hunting today, dogs are more commonly thought of as house pets",
+			"Chickens first were a small bird in eastern china, first domesticated for its fast breeding rate, laying almost an egg every single day. It was bred to be heavier later, and is one of the most widely eaten meats to this day.",
+			"Goats were domesticated for their wide variety of products. Milk, meat, and easy to herd, and can even traverse mountainous terrain. When people think of goats nowadays, though, they think of Goat's cheese most likely.",
+			"Once the backbone of the Inca empire, one of the last native american empires before the conquistadors came. They're difficult to herd, but it's one of the few things that live in the Andes mountain range."]
+			function toggleStatus(slot){
+				if(activationStatus[slot] == 0){
+				let setuptext = "<i>" + LatinName[slot] + "</i><br><p>"+description[slot]+"</p>"
+				document.getElementById("slot"+slot).innerHTML = setuptext;
+				activationStatus[slot] = 1;
+			} else{
+				activationStatus[slot] = 0;
+				document.getElementById("slot"+slot).innerHTML = "";
+			}
+			}
+		</script>
     </body>
 </html>
